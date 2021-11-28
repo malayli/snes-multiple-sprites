@@ -12,7 +12,7 @@ extern char gfxpsrite, gfxpsrite_end;
 extern char palsprite, palsprite_end;
 
 #define SPRITEADDRESS 		0x2000
-#define ADRSPRITLARDGE      0x2400          // arbitrary to have enough space but small & large one
+#define LARGESPRITEADDRESS  0x2400          // arbitrary to have enough space but small & large one
 #define PALETTESPRSIZE      (16*2)
 
 int oamId = 0;
