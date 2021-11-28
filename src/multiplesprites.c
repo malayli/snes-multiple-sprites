@@ -11,7 +11,9 @@
 extern char gfxpsrite, gfxpsrite_end;
 extern char palsprite, palsprite_end;
 
-#define SPRITEADDRESS 0x0000
+#define SPRITEADDRESS 		0x2000
+#define ADRSPRITLARDGE      0x2400          // arbitrary to have enough space but small & large one
+#define PALETTESPRSIZE      (16*2)
 
 int oamId = 0;
 int size = 32*32/16;
@@ -26,7 +28,7 @@ void loadSprites() {
 	int tileIndex = 0;
 
 	// Init Sprites gfx and palette with default size of 32x32
-	oamInitGfxSet(&gfxpsrite, 32*32*3*2, &palsprite, (&palsprite_end-&palsprite), 0, SPRITEADDRESS, OBJ_SIZE8_L32);
+	oamInitGfxSet(&gfxpsrite, (&gfxpsrite_end-&gfxpsrite), &palsprite, (&palsprite_end-&palsprite), 0, SPRITEADDRESS, OBJ_SIZE8_L32);
 	
 	// Display Sprite 1
 	loadSprite(tileIndex, 0, 0, 0);
