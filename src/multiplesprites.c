@@ -19,36 +19,40 @@ extern char palsprite, palsprite_end;
 #define PAL1 1
 #define PAL2 2
 
-int oamId = 0;
-int size = 32*32/16;
+// The oam number to be set [0 - 127] * 4 because of oam structures
+u16 oamId = 0;
 
-void loadSprite(int tileIndex, int x, int y, int paletteIndex) {
-    oamSet(oamId, x, y, 0, 0, 0, tileIndex, paletteIndex);
+// Tile size
+int tileSize = 32*32/16;
+
+// Tilenumber graphic offset
+u16 gfxoffset = 0;
+
+void loadSprite(u16 gfxoffset, u16 x, u16 y, int paletteoffset) {
+    oamSet(oamId, x, y, 0, 0, 0, gfxoffset, paletteoffset);
     oamSetEx(oamId, OBJ_LARGE, OBJ_SHOW);
     oamId += 4;
 }
 
-void loadSpritesAtLine(int paletteIndex, int lineNumber, int tileIndex) {
+void loadSpritesAtLine(int paletteoffset, u16 lineNumber, u16 gfxoffset) {
     int i;
     for (i = 0; i<8; i++) {
-        loadSprite(tileIndex, i*32, lineNumber, paletteIndex);
+        loadSprite(gfxoffset, i*32, lineNumber, paletteoffset);
     }
 }
 
 void loadSprites() {
-    int tileIndex = 0;
-
     // Init Sprites gfx and palette with default size of 32x32
     oamInitGfxSet(&gfxpsrite, (&gfxpsrite_end-&gfxpsrite), &palsprite, (&palsprite_end-&palsprite), 0, SPRITEADDRESS, OBJ_SIZE8_L32);
 
-    loadSpritesAtLine(PAL0, 0, tileIndex);
-    tileIndex += size;
+    loadSpritesAtLine(PAL0, 0, gfxoffset);
+    gfxoffset += tileSize;
 
-    loadSpritesAtLine(PAL1, 32, tileIndex);
-    tileIndex += size;
+    loadSpritesAtLine(PAL1, 32, gfxoffset);
+    gfxoffset += tileSize;
 
-    loadSpritesAtLine(PAL2, 64, tileIndex);
-    tileIndex += size;
+    loadSpritesAtLine(PAL2, 64, gfxoffset);
+    gfxoffset += tileSize;
 }
 
 //---------------------------------------------------------------------------------
