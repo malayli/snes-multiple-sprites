@@ -23,7 +23,7 @@ extern char palsprite, palsprite_end;
 u16 oamId = 0;
 
 // Tile size
-int tileSize = 32*32/16;
+u16 tileSize = 32*32/16;
 
 // Tilenumber graphic offset
 u16 gfxoffset = 0;
