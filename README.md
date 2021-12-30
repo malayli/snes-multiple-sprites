@@ -1,8 +1,8 @@
 # SNES Multiple Sprites
 
 ## Description
-This is a demo for the Super Nintendo and Super Famicom.
-This sample shows how to display multiple sprites with PVSnesLib on Super Nintendo / Super Famicom.
+This is a demo for the Super Nintendo and Super Famicom.\
+This sample shows how to display multiple sprites with PVSnesLib on Super Nintendo / Super Famicom.\
 It is built with PVSnesLib.
 
 ## Preview
