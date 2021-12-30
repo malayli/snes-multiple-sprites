@@ -8,6 +8,21 @@ It is built with PVSnesLib.
 ## Preview
 ![preview](preview.png)
 
+### Visual Studio Code
+- Install Visual Studio Code
+- Open the root directory with Visual Studio Code
+- Build: Shit+Ctrl+B
+- Open multiplesprites.sfc with a SNES Emulator
+
+### Programmer's Notepad
+- Install Programmer's Notepad: https://github.com/alekmaul/pvsneslib/wiki/PVSneslib-and-Programmer-Notepad
+- Open multiplesprites.pnproj with Programmer's Notepad
+- Click on Tools>make in the top menu
+- Open multiplesprites.sfc with a SNES Emulator
+
+## PVSnesLib Documentation
+http://www.portabledev.com/pvsneslib/doc/
+
 ## smconv
 Options are:
 
